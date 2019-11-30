@@ -1,0 +1,13 @@
+.quarzo-responsive-navbar{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    top: 0;
+}
+
+.quarzo-link-navbar{
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 0px 10px;
+}
