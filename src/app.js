@@ -1,19 +1,20 @@
+//Welcome to QuarzoJS
 import ResponsiveNavbar from './modules/ResponsiveNavbar';
 //Styles
 import './css/style.css';
 import './css/ResponsiveNavbar.css';
 
+//Here we create the main menu :-)
 const mainMenu = new ResponsiveNavbar({
     elementId: 'navbar',
     fixed: true,
     height: '60px',
-    color: 'green',
+    color: 'black',
     links: [
-        {name: 'Inicio', url: '#'},
-        {name: 'Sobre Nosotros', url: '#'}
+        {name: 'Home', url: '#'},
+        {name: 'About us', url: '#'},
+        {name: 'Services', url: '#'}
     ],
     colorLink: '#fff',
-    colorLinkHover: 'grey'
+    colorLinkHover: '#eee'
 });
-
-mainMenu.createContainer();
