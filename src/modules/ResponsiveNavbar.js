@@ -4,6 +4,7 @@ export default class ResponsiveNavbar extends Element{
     constructor(element){
         super();
         this.element = element;
+        this.createContainer();
     }
 
     createContainer() {
