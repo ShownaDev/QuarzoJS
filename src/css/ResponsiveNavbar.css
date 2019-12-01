@@ -12,3 +12,39 @@
     font-size: 1.2em;
     margin: 0px 10px;
 }
+
+/*Default Icon*/
+.quarzo-menu-icon-container{
+    display: none;
+}
+
+.quarzo-default-menu-icon{
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0px;
+}
+
+.submenu-container-responsive{
+    height: 100vh;
+    box-shadow: 1px 1px 8px grey;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 800px){
+    .quarzo-link-navbar{
+        display: none;
+    }
+
+    .quarzo-menu-icon-container{
+        display: block;
+        margin: 0px 10px;
+        cursor: pointer;
+    }
+
+    .quarzo-responsive-navbar{
+        justify-content: flex-start;
+    }
+}
