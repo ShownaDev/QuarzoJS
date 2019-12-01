@@ -11,6 +11,7 @@ export default class ResponsiveNavbar extends Element{
         const navbarContainer = document.getElementById(this.element.elementId);
 
         var fixedOrNot = (this.element.fixed) ? 'fixed' : 'relative';
+        const icon = this.createDefaultIcon();
 
         const styles = {
             'position': fixedOrNot,
@@ -22,6 +23,9 @@ export default class ResponsiveNavbar extends Element{
         this.setPagesLinks(navbarContainer);
 
         navbarContainer.className = 'quarzo-responsive-navbar';
+        navbarContainer.appendChild(icon);
+
+        icon.addEventListener('click', this.createSubMenuResponsive());
     }
 
     setPagesLinks(container){
@@ -51,6 +55,37 @@ export default class ResponsiveNavbar extends Element{
 
             container.appendChild(linkTag);
         });
+    }
 
+    createDefaultIcon(){
+        var iconContainer = document.createElement("div");
+        iconContainer.className = 'quarzo-menu-icon-container';
+        iconContainer.setAttribute('id', 'quarzo-menu-icon-container');
+        for(var i = 0; i < 3; i++){
+            var iconDiv = document.createElement("div");
+            iconDiv.className = 'quarzo-default-menu-icon';
+            iconContainer.appendChild(iconDiv);
+        }
+
+        return iconContainer;
+    }
+
+    createSubMenuResponsive(){
+        console.log("XD");
+        var widthSubMenu = this.element.widthSubMenu;
+        var colorSubMenu = this.element.colorSubMenu;
+
+        const styles = {
+            'width': widthSubMenu,
+            'backgroundColor': colorSubMenu,
+            'marginTop': this.element.height,
+        }
+
+        const subMenuContainer = document.createElement("div");
+        subMenuContainer.setAttribute('id', 'submenu-container-responsive');
+        subMenuContainer.className += "submenu-container-responsive";
+
+        this.setStyle(subMenuContainer, styles);
+        this.setPagesLinks(subMenuContainer);
     }
 }
