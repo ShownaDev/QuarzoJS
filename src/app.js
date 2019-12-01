@@ -16,5 +16,8 @@ const mainMenu = new ResponsiveNavbar({
         {name: 'Services', url: '#'}
     ],
     colorLink: '#fff',
-    colorLinkHover: '#eee'
+    colorLinkHover: 'red',
+    widthSubMenu: '60%',
+    colorSubMenu: '#eee'
 });
+//Ends the navbar
