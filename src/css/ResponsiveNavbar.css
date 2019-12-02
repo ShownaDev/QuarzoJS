@@ -13,6 +13,12 @@
     margin: 0px 10px;
 }
 
+.quarzo-link-submenu{
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 10px 0px;
+}
+
 /*Default Icon*/
 .quarzo-menu-icon-container{
     display: none;
@@ -26,11 +32,16 @@
 }
 
 .submenu-container-responsive{
+    display: none;
+}
+
+.submenu-container-responsive-active{
     height: 100vh;
-    box-shadow: 1px 1px 8px grey;
+    box-shadow: 1px 1px 5px grey;
     position: fixed;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 @media (max-width: 800px){
@@ -46,5 +57,11 @@
 
     .quarzo-responsive-navbar{
         justify-content: flex-start;
+    }
+}
+
+@media (min-width: 801px){
+    .submenu-container-responsive-active{
+        display: none;
     }
 }
