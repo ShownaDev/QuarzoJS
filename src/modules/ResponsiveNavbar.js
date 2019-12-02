@@ -24,22 +24,37 @@ export default class ResponsiveNavbar extends Element{
 
         navbarContainer.className = 'quarzo-responsive-navbar';
         navbarContainer.appendChild(icon);
+        //We create the SubMenu container
+        this.createSubMenuResponsive();
 
-        icon.addEventListener('click', this.createSubMenuResponsive());
+        icon.addEventListener('click', function(){
+            const subMenuContainer = document.getElementById('submenu-container-responsive');
+
+            subMenuContainer.classList.toggle('submenu-container-responsive-active');
+        });
     }
 
-    setPagesLinks(container){
+    setPagesLinks(container, subMenu = false){
         var pagesLinks = this.element.links;
 
         pagesLinks.forEach(link => {
             var linkTag = document.createElement("a");
-            var colorHover = this.element.colorLinkHover;
-            var colorLink = this.element.colorLink;
+
+            var colorHover = (subMenu) ? this.element.colorLinkHoverSubMenu : 
+            this.element.colorLinkHover;
+
+            var colorLink = (subMenu) ? this.element.colorLinkSubMenu : 
+            this.element.colorLink;
 
             linkTag.innerHTML = link.name;
 
-            linkTag.className = 'quarzo-link-navbar';
-            linkTag.style.color = colorLink;
+            if(subMenu){
+                linkTag.className = 'quarzo-link-submenu';
+                linkTag.style.color = colorLink;
+            } else {
+                linkTag.className = 'quarzo-link-navbar';
+                linkTag.style.color = colorLink;
+            }
 
             linkTag.addEventListener('mouseenter', function(e){
                 e.target.style.color = colorHover;
@@ -71,9 +86,12 @@ export default class ResponsiveNavbar extends Element{
     }
 
     createSubMenuResponsive(){
-        console.log("XD");
+        //we are creating the submenu here
         var widthSubMenu = this.element.widthSubMenu;
         var colorSubMenu = this.element.colorSubMenu;
+        const subMenuContainer = document.createElement("div");
+        subMenuContainer.setAttribute('id', 'submenu-container-responsive');
+        subMenuContainer.className = "submenu-container-responsive";
 
         const styles = {
             'width': widthSubMenu,
@@ -81,11 +99,9 @@ export default class ResponsiveNavbar extends Element{
             'marginTop': this.element.height,
         }
 
-        const subMenuContainer = document.createElement("div");
-        subMenuContainer.setAttribute('id', 'submenu-container-responsive');
-        subMenuContainer.className += "submenu-container-responsive";
-
         this.setStyle(subMenuContainer, styles);
-        this.setPagesLinks(subMenuContainer);
+        this.setPagesLinks(subMenuContainer, true);
+
+        document.body.appendChild(subMenuContainer);
     }
 }
