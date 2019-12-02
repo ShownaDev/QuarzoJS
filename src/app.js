@@ -17,7 +17,9 @@ const mainMenu = new ResponsiveNavbar({
     ],
     colorLink: '#fff',
     colorLinkHover: 'red',
-    widthSubMenu: '60%',
+    colorLinkSubMenu: 'black',
+    colorLinkHoverSubMenu: 'green',
+    widthSubMenu: '80%',
     colorSubMenu: '#eee'
 });
 //Ends the navbar
