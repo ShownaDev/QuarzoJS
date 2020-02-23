@@ -4,4 +4,9 @@ export default class QuarzoElement{
             elem.style[property] = propertyObject[property];
         }
     }
+
+    getElement(objId){
+        var element = document.getElementById(objId);
+        return element;
+    }
 }
