@@ -4,7 +4,7 @@
     justify-content: flex-end;
     align-items: center;
     top: 0;
-    box-shadow: 1px 1px 8px #808080;
+    /*box-shadow: 1px 1px 4px #808080;*/
 }
 
 .quarzo-link-navbar{
